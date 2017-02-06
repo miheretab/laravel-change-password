@@ -13,7 +13,11 @@
 @endsection
 
 @section('content')
-
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+    @endif
     <style>
         .action-button {
             margin-top: 7px;

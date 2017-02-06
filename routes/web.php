@@ -21,10 +21,11 @@ Route::get('/home', 'HomeController@index');
 
 // FIXME: This route is only here as an example!
 // It must be replaced with a proper route to a controller/action with appropriate middleware for authentication
-Route::get('/password/change', function () {
+Route::match(array('GET','POST'),'/password/change', 'PasswordController@change')->middleware('auth');
+/*Route::get('/password/change', function () {
     return view('auth.passwords.change',
         [
             'mode' => 'edit',       // show for readonly, edit to be able to change fields
             'formAction' => '/password/change'
         ]);
-});
+});*/
